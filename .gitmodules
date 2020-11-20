@@ -1,0 +1,6 @@
+[submodule "3rdparty/benchmark"]
+	path = 3rdparty/benchmark
+	url = https://github.com/google/benchmark.git
+[submodule "3rdparty/abseil-cpp"]
+	path = 3rdparty/abseil-cpp
+	url = https://github.com/abseil/abseil-cpp.git
