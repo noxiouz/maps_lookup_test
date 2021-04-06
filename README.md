@@ -79,3 +79,44 @@ MapStringLookup<absl::flat_hash_map<std::string, Value>>/16384                  
 MapStringLookup<absl::flat_hash_map<std::string, Value>>/32768                   363 ns          363 ns      2020608 actual_size=32.767k
 MapStringLookup<absl::flat_hash_map<std::string, Value>>/65536                   353 ns          353 ns      2043570 actual_size=65.535k
 ```
+
+# From MacOSX (15-inch, 2018) 2.9 GHz 6-Core Intel Core i9
+
+Apple clang version 12.0.0 (clang-1200.0.32.29)
+Target: x86_64-apple-darwin19.6.0
+
+```
+2021-04-06T11:44:08+01:00
+Running ./lower_bound
+Run on (12 X 2900 MHz CPU s)
+CPU Caches:
+  L1 Data 32 KiB (x6)
+  L1 Instruction 32 KiB (x6)
+  L2 Unified 256 KiB (x6)
+  L3 Unified 12288 KiB (x1)
+Load Average: 2.92, 2.19, 1.89
+-----------------------------------------------------------------------------------------------------------------------
+Benchmark                                                             Time             CPU   Iterations UserCounters...
+-----------------------------------------------------------------------------------------------------------------------
+MapLowerBoundLookup<std::map<uint64_t, Vector>>/1024               48.0 ns         48.0 ns     11579626 actual_size=1024
+MapLowerBoundLookup<std::map<uint64_t, Vector>>/2048               54.6 ns         54.6 ns     13241275 actual_size=2.048k
+MapLowerBoundLookup<std::map<uint64_t, Vector>>/4096               63.4 ns         63.3 ns     12248040 actual_size=4.096k
+MapLowerBoundLookup<std::map<uint64_t, Vector>>/8192               65.2 ns         65.2 ns     10879363 actual_size=8.192k
+MapLowerBoundLookup<std::map<uint64_t, Vector>>/16384              83.6 ns         83.6 ns      8515815 actual_size=16.384k
+MapLowerBoundLookup<std::map<uint64_t, Vector>>/32768              84.7 ns         84.7 ns      7745933 actual_size=32.768k
+MapLowerBoundLookup<std::map<uint64_t, Vector>>/65536              99.2 ns         99.2 ns      7195502 actual_size=65.536k
+MapLowerBoundLookup<absl::btree_map<uint64_t, Vector>>/1024        49.0 ns         49.0 ns     14088447 actual_size=1024
+MapLowerBoundLookup<absl::btree_map<uint64_t, Vector>>/2048        51.8 ns         51.8 ns     15110044 actual_size=2.048k
+MapLowerBoundLookup<absl::btree_map<uint64_t, Vector>>/4096        58.6 ns         58.6 ns     12273811 actual_size=4.096k
+MapLowerBoundLookup<absl::btree_map<uint64_t, Vector>>/8192        69.3 ns         69.3 ns     10644121 actual_size=8.192k
+MapLowerBoundLookup<absl::btree_map<uint64_t, Vector>>/16384       69.3 ns         69.3 ns     10131859 actual_size=16.384k
+MapLowerBoundLookup<absl::btree_map<uint64_t, Vector>>/32768       70.4 ns         70.4 ns      9476620 actual_size=32.768k
+MapLowerBoundLookup<absl::btree_map<uint64_t, Vector>>/65536       84.6 ns         84.6 ns      8882460 actual_size=65.536k
+VectorLowerBoundLookup/1024                                        35.1 ns         35.1 ns     20540027 actual_size=1024
+VectorLowerBoundLookup/2048                                        36.9 ns         36.9 ns     17895856 actual_size=2.048k
+VectorLowerBoundLookup/4096                                        40.3 ns         40.3 ns     16651363 actual_size=4.096k
+VectorLowerBoundLookup/8192                                        44.9 ns         44.9 ns     15557595 actual_size=8.192k
+VectorLowerBoundLookup/16384                                       50.9 ns         50.9 ns     10000000 actual_size=16.384k
+VectorLowerBoundLookup/32768                                       56.7 ns         56.7 ns     12668766 actual_size=32.768k
+VectorLowerBoundLookup/65536                                       69.4 ns         69.4 ns     10930668 actual_size=65.536k
+```
