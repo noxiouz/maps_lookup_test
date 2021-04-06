@@ -17,3 +17,10 @@ target_link_libraries(lookup
 	absl::str_format
 	benchmark::benchmark
 )
+
+add_executable(lower_bound lower_bound.cpp)
+target_link_libraries(lower_bound
+	absl::flat_hash_map
+	# absl::str_format
+	benchmark::benchmark
+)
